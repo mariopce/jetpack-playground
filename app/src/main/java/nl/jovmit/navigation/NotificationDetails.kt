@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.findNavController
 import kotlinx.android.synthetic.main.fragment_notification_details.*
 
 class NotificationDetails : Fragment() {
@@ -20,6 +21,11 @@ class NotificationDetails : Fragment() {
         arguments?.let {
             val passedArguments = NotificationDetailsArgs.fromBundle(it)
             notificationDetailsLabel.text = passedArguments.notificationId
+        }
+        notificationDetailsLabel.setOnClickListener {
+            val action = NotificationDetailsDirections.actionNotificationDetailsToBlankFragment()
+            action.setArg1("arg")
+            view.findNavController().navigate(action)
         }
     }
 }

@@ -46,6 +46,7 @@
             app:popEnterAnim="@anim/nav_default_pop_enter_anim"
             app:popExitAnim="@anim/nav_default_pop_exit_anim"
             app:popUpTo="@+id/actionNotifications" />
+        <deepLink app:uri="www.navigation.jovmit.nl/start"/>
 
     </fragment>
 
@@ -59,7 +60,27 @@
             android:name="notificationId"
             android:defaultValue='""'
             app:type="string" />
+        <action
+            android:id="@+id/action_notificationDetails_to_blankFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim"
+            app:destination="@id/blankFragment"
+            app:popUpTo="@+id/blankFragment" />
 
     </fragment>
+    <fragment
+        android:id="@+id/blankFragment"
+        android:name="nl.jovmit.navigation.BlankFragment"
+        android:label="fragment_blank"
+        tools:layout="@layout/fragment_blank" >
+        <argument
+            android:name="arg1"
+            android:defaultValue="aa"
+            app:type="string" />
+        <deepLink app:uri="www.navigation.jovmit.nl/blank" />
+    </fragment><deepLink app:uri="www.navigation.jovmit.nl/home"/>
+
 
 </navigation>
